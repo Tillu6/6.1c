@@ -1,0 +1,82 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Stage 1: Building the code using Maven '
+            }
+        }
+
+        stage('Unit and Integration Tests') {
+            steps {
+                echo 'Stage 2: Running unit tests and integration tests'
+		}
+                post{
+			success{
+				emailext attachLog: true,
+		
+				subject: "unit test status Email",
+				body: "unit test  was successfull",
+				to: "sakethreddy018@gmail.com"
+				}
+		}
+            
+        }
+
+        stage('Code Analysis') {
+            steps {
+                echo 'Stage 3: Running code analysis using SonarQube'
+                
+            }
+        }
+
+        stage('Security Scan') {
+            steps {
+                echo 'Stage 4: Performing a security scan using   OWASP ZAP'
+ 		}
+                post{
+			success{
+				emailext attachLog: true,
+				
+				subject: "security scan status Email",
+				body: "security scanwas successfull",
+				to: "sakethreddy018@gmail.com"
+				}
+		}
+           
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                echo 'Stage 5: Deploying to the staging environment Using AWS EC2'
+                
+            }
+        }
+
+        stage('Integration Tests on Staging') {
+            steps {
+                echo 'Stage 6: Running integration tests on the staging environment'
+                
+            }
+        }
+
+        stage('Deploy to Production') {
+            steps {
+                echo 'Stage 7: Deploying to the production environment using AWS EC2'
+		}
+                post{
+			success{
+				emailext attachLog: true,
+			
+				subject: "Build status Email",
+				body: "Build was successfull",
+				to: "sakethreddy018@gmail.com"
+				}
+		}
+            
+        }
+   } 
+}
+
+    
