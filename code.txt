@@ -19,7 +19,7 @@ pipeline {
 		
 				subject: "Build status Email",
 				body: "Build was successfull",
-				to: "tarunchowdary.e@gmail.com"
+				to: "sakethreddy018@gmail.com"
 				}
 		}
             
@@ -42,7 +42,7 @@ pipeline {
 				
 				subject: "Build status Email",
 				body: "Build was successfull",
-				to: "tarunchowdary.e@gmail.com"
+				to: "sakethreddy018@gmail.com"
 				}
 		}
            
@@ -71,7 +71,7 @@ pipeline {
 				emailext attachLog: true,
 				subject: "Build status Email",
 				body: "Build was successfull",
-				to: "tarunchowdary.e@gmail.com"
+				to: "sakethreddy018@gmail.com"
 				}
 		}
         }
