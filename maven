@@ -1,6 +1,0 @@
-stage('Build') {
-    steps {
-        echo 'Building the code using Maven...'
-        // Here you would normally call Maven to build your code
-    }
-}
