@@ -17,6 +17,7 @@ pipeline {
                         mail to: "sakethreddy0014@gmail.com",
                         subject: "Tests Passed: ${currentBuild.currentResult}",
                         body: "Unit and Integration tests passed successfully."
+                        attachlog:true
                 }
                 
             }
@@ -38,6 +39,7 @@ pipeline {
                         mail to: "sakethreddy0014@gmail.com",
                         subject: "Security Scan Passed: ${currentBuild.currentResult}",
                         body: "Security scan completed successfully."
+                        attachLog:true
                 }
             }
         }
